@@ -12,7 +12,7 @@ app = Flask(__name__)
 def hello_world():
     request_type_str = request.method
     if request_type_str == 'GET':
-        return render_template('app/index.html', href='app/static/base_pic.svg')
+        return render_template('index.html', href='static/base_pic.svg')
     else:
         text = request.form['text']
         random_string = uuid.uuid4().hex
