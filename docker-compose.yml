@@ -1,0 +1,13 @@
+version: "3.8.16"
+
+services:
+  simpleapp:
+    build: .
+    image: python:3.7-slim-bullseye
+    volumes:
+      - ./app:/app
+      - ./environment:/app/environment 
+    ports:
+      - 8000:8000    
+    working_dir: /app
+    command: sh -c "pip install --upgrade pip && pip install -r environment/requirements.txt && python wsgi.py "
